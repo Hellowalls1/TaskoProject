@@ -1,0 +1,10 @@
+C:\Users\User\workspace\TaskoProject\TaskoProject\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\User\workspace\TaskoProject\TaskoProject\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\User\workspace\TaskoProject\TaskoProject\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\User\workspace\TaskoProject\TaskoProject\bin\Debug\netcoreapp3.1\TaskoProject.exe
+C:\Users\User\workspace\TaskoProject\TaskoProject\obj\Debug\netcoreapp3.1\TaskoProject.csprojAssemblyReference.cache
+C:\Users\User\workspace\TaskoProject\TaskoProject\obj\Debug\netcoreapp3.1\TaskoProject.AssemblyInfoInputs.cache
+C:\Users\User\workspace\TaskoProject\TaskoProject\obj\Debug\netcoreapp3.1\TaskoProject.AssemblyInfo.cs
+C:\Users\User\workspace\TaskoProject\TaskoProject\obj\Debug\netcoreapp3.1\TaskoProject.RazorTargetAssemblyInfo.cache
+C:\Users\User\workspace\TaskoProject\TaskoProject\obj\Debug\netcoreapp3.1\staticwebassets\TaskoProject.StaticWebAssets.Manifest.cache
+C:\Users\User\workspace\TaskoProject\TaskoProject\obj\Debug\netcoreapp3.1\staticwebassets\TaskoProject.StaticWebAssets.xml

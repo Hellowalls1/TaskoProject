@@ -47,10 +47,5 @@ namespace TaskoProject.Models
         [MaxLength(250)]
         public string Photo { get; set; }
 
-
-
-
-
-
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TaskoProject.Data;
+using TaskoProject.Models;
 using TaskoProject.Repositories;
 
 namespace TaskoProject.Controllers
@@ -30,6 +31,13 @@ namespace TaskoProject.Controllers
         public IActionResult GetTeamById(int id)
         {
             return Ok(_teamRepository.GetTeamById(id));
+        }
+        
+        [HttpPost]
+        public IActionResult Post(Team team)
+        {
+            _teamRepository.Add(team);
+                 return CreatedAtAction("Get", new { id = team.Id }, team);
         }
     }
 }

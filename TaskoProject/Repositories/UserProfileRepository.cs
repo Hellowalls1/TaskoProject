@@ -20,8 +20,16 @@ namespace TaskoProject.Repositories
         public UserProfile GetByFirebaseUserId(string firebaseUserId)
         {
             return _context.UserProfile
-
+                .Include(i => i.TeamId)
                 .FirstOrDefault(up => up.FirebaseUserId == firebaseUserId);
+        }
+
+        public UserProfile GetUserProfileById(int id)
+        {
+            return _context.UserProfile
+
+                .FirstOrDefault(up => up.Id == id);
+                
         }
 
         public void Add(UserProfile userProfile)

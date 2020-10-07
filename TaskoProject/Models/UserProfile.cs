@@ -42,8 +42,9 @@ namespace TaskoProject.Models
         
         public int TeamId { get; set; }
 
+        public Team Team { get; set; }
 
-        
+
         [MaxLength(250)]
         public string Photo { get; set; }
 

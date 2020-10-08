@@ -15,9 +15,11 @@ namespace TaskoProject.Controllers
     public class UserProfileController : ControllerBase
     {
         private readonly UserProfileRepository _userProfileRepository;
+        private readonly TeamRepository _teamRepository;
         public UserProfileController(ApplicationDbContext context)
         {
             _userProfileRepository = new UserProfileRepository(context);
+            _teamRepository = new TeamRepository(context);
         }
 
         [HttpGet("{firebaseUserId}")]
@@ -29,6 +31,12 @@ namespace TaskoProject.Controllers
                 return NotFound();
             }
             return Ok(userProfile);
+        }
+
+        [HttpGet("id/{id}")]
+        public IActionResult GetUserProfileById(int id)
+        {
+            return Ok(_userProfileRepository.GetUserProfileById(id));
         }
 
         [HttpPost]

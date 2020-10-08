@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations.Operations;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,5 +36,20 @@ namespace TaskoProject.Repositories
             _context.Add(team);
             _context.SaveChanges();
         }
+
+        public void Update(Team team)
+        {
+            _context.Entry(team).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var team = GetTeamById(id);
+            _context.Team.Remove(team);
+            _context.SaveChanges();
+        }
+
+
     }
 }

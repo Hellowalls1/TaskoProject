@@ -52,6 +52,8 @@ namespace TaskoProject.Controllers
                  return CreatedAtAction("Get", new { id = team.Id }, team);
         }
 
+        //updates the team
+
         [HttpPut("{id}")]
         
         public IActionResult Put(int id, Team team)

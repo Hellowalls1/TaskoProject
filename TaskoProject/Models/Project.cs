@@ -14,7 +14,7 @@ namespace TaskoProject.Models
 
        [Required]
      
-        public int CreatorId { get; set; }
+        public int UserProfileId { get; set; }
 
         public UserProfile  UserProfile { get; set; }
 
@@ -39,9 +39,9 @@ namespace TaskoProject.Models
 
         public DateTime DateCreated { get; set; }
 
-        [Required]
+    
 
-        public DateTime DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
 
     }
 }

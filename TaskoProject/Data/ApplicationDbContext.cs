@@ -16,5 +16,6 @@ namespace TaskoProject.Data
         public DbSet<Task> Task { get; set; }
         public DbSet<Project> Project { get; set; }
 
+ 
     }
 }

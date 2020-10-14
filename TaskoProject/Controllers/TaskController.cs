@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TaskoProject.Data;
@@ -13,15 +12,20 @@ namespace TaskoProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TeamController : ControllerBase
+    public class TaskController : ControllerBase
     {
         private readonly TeamRepository _teamRepository;
         private readonly UserProfileRepository _userProfileRepository;
-
-        public TeamController(ApplicationDbContext context)
+        private readonly ProjectRepository _projectRepository;
+        private readonly ListRepository _listRepository;
+        private readonly TaskRepository _taskRepository;
+        public TaskController(ApplicationDbContext context)
         {
             _teamRepository = new TeamRepository(context);
             _userProfileRepository = new UserProfileRepository(context);
+            _projectRepository = new ProjectRepository(context);
+            _listRepository = new ListRepository(context);
+            _taskRepository = new TaskRepository(context);
         }
 
         //getting the authorized user
@@ -36,34 +40,37 @@ namespace TaskoProject.Controllers
 
         public IActionResult Get()
         {
-            return Ok(_teamRepository.GetAll());
+            return Ok(_taskRepository.GetAll());
         }
 
         [HttpGet("id/{id}")]
-        public IActionResult GetTeamById(int id)
+        public IActionResult GetTasktById(int id)
         {
-            return Ok(_teamRepository.GetTeamById(id));
+            return Ok(_taskRepository.GetTaskById(id));
         }
-        
+
         [HttpPost]
-        public IActionResult Post(Team team)
+        public IActionResult Post(Task task)
         {
-            _teamRepository.Add(team);
-                 return CreatedAtAction("Get", new { id = team.Id }, team);
+            _taskRepository.Add(task);
+            return CreatedAtAction("Get", new { id = task.Id }, task);
         }
 
         //updates the team
 
         [HttpPut("{id}")]
-        
-        public IActionResult Put(int id, Team team)
+
+        public IActionResult Put(int id, Task task)
         {
-            if (id != team.Id)
+            if (id != task.Id)
             {
                 return BadRequest();
             }
 
-            _teamRepository.Update(team);
+            // var currentUser = GetCurrentUserProfile();
+            // project.UserProfileId = currentUser.Id;
+
+            _taskRepository.Update(task);
             return NoContent();
         }
 
@@ -71,9 +78,9 @@ namespace TaskoProject.Controllers
 
         public IActionResult Delete(int id)
         {
-            _teamRepository.Delete(id);
-             return NoContent();
+            _taskRepository.Delete(id);
+            return NoContent();
         }
-            
+
     }
 }

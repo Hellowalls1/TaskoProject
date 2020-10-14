@@ -42,7 +42,6 @@ namespace TaskoProject.Controllers
         [HttpPost]
         public IActionResult Register(UserProfile userProfile)
         {
-           
             _userProfileRepository.Add(userProfile);
             return CreatedAtAction(
                 nameof(GetByFirebaseUserId), new { firebaseUserId = userProfile.FirebaseUserId }, userProfile);

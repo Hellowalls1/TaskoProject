@@ -13,17 +13,18 @@ namespace TaskoProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProjectController : ControllerBase
+    public class ListController : ControllerBase
     {
         private readonly TeamRepository _teamRepository;
         private readonly UserProfileRepository _userProfileRepository;
         private readonly ProjectRepository _projectRepository;
-
-        public ProjectController(ApplicationDbContext context)
+        private readonly ListRepository _listRepository;
+        public ListController(ApplicationDbContext context)
         {
             _teamRepository = new TeamRepository(context);
             _userProfileRepository = new UserProfileRepository(context);
             _projectRepository = new ProjectRepository(context);
+            _listRepository = new ListRepository(context);
         }
 
         //getting the authorized user
@@ -38,37 +39,37 @@ namespace TaskoProject.Controllers
 
         public IActionResult Get()
         {
-            return Ok(_projectRepository.GetAll());
+            return Ok(_listRepository.GetAll());
         }
 
         [HttpGet("id/{id}")]
-        public IActionResult GetPojectById(int id)
+        public IActionResult GetListById(int id)
         {
-            return Ok(_projectRepository.GetProjectById(id));
+            return Ok(_listRepository.GetListById(id));
         }
 
         [HttpPost]
-        public IActionResult Post(Project project)
+        public IActionResult Post(List list)
         {
-            _projectRepository.Add(project);
-            return CreatedAtAction("Get", new { id = project.Id }, project);
+            _listRepository.Add(list);
+            return CreatedAtAction("Get", new { id = list.Id }, list);
         }
 
         //updates the team
 
         [HttpPut("{id}")]
 
-        public IActionResult Put(int id, Project project)
+        public IActionResult Put(int id, List list)
         {
-            if (id != project.Id)
+            if (id != list.Id)
             {
                 return BadRequest();
             }
 
-           // var currentUser = GetCurrentUserProfile();
-           // project.UserProfileId = currentUser.Id;
-           
-            _projectRepository.Update(project);
+            // var currentUser = GetCurrentUserProfile();
+            // project.UserProfileId = currentUser.Id;
+
+            _listRepository.Update(list);
             return NoContent();
         }
 
@@ -76,7 +77,7 @@ namespace TaskoProject.Controllers
 
         public IActionResult Delete(int id)
         {
-            _projectRepository.Delete(id);
+            _listRepository.Delete(id);
             return NoContent();
         }
 

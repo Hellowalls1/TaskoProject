@@ -8,50 +8,49 @@ using TaskoProject.Models;
 
 namespace TaskoProject.Repositories
 {
-    public class ProjectRepository
+    public class ListRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public ProjectRepository(ApplicationDbContext context)
+        public ListRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public List<Project> GetAll()
+        public List<List> GetAll()
         {
-            return _context.Project
+            return _context.List
                    .Include(p => p.UserProfile)
-                   .Include(p => p.Team)
+                   .Include(p => p.Project)
                    .ToList();
         }
 
-        public Project GetProjectById(int id)
+        public List GetListById(int id)
         {
-            return _context.Project
+            return _context.List
             .Include(p => p.UserProfile)
-            .Include(p => p.Team)
+            .Include(p => p.Project)
             .FirstOrDefault(t => t.Id == id);
         }
 
-      
-        public void Add(Project project)
+
+        public void Add(List list)
         {
-            _context.Add(project);
+            _context.Add(list);
             _context.SaveChanges();
         }
 
-        public void Update(Project project)
+        public void Update(List list)
         {
-            _context.Entry(project).State = EntityState.Modified;
+            _context.Entry(list).State = EntityState.Modified;
             _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var project = GetProjectById(id);
-            _context.Project.Remove(project);
+            var list = GetListById(id);
+            _context.List.Remove(list);
             _context.SaveChanges();
         }
-        
     }
 }

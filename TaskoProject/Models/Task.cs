@@ -13,7 +13,7 @@ namespace TaskoProject.Models
         public int Id { get; set; }
 
         [Required]
-        public int CreatorId { get; set; }
+        public int UserProfileId { get; set; }
         
         //need to have the primary key for CreatorId and 
         public UserProfile UserProfile { get; set; }
@@ -40,8 +40,7 @@ namespace TaskoProject.Models
         public DateTime DateCreated { get; set; }
 
 
-        [Required]
         
-        public DateTime DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
     }
 }

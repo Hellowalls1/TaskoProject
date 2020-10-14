@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TaskoProject.Data;
+using TaskoProject.Models;
 
 namespace TaskoProject.Repositories
 {
@@ -47,7 +47,7 @@ namespace TaskoProject.Repositories
 
         public void Delete(int id)
         {
-            var list = GetTaskById(id);
+            var task = GetTaskById(id);
             _context.Task.Remove(task);
             _context.SaveChanges();
         }

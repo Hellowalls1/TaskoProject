@@ -42,7 +42,7 @@ namespace TaskoProject.Controllers
         {
             return Ok(_taskRepository.GetAll());
         }
-
+        //gets all tasks by id
         [HttpGet("id/{id}")]
         public IActionResult GetTasktById(int id)
         {

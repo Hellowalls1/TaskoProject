@@ -37,6 +37,7 @@ namespace TaskoProject.Models
 
         public DateTime DateCreated { get; set; }
 
+        //? allowing null value (no [Required] because it is not)
         public DateTime? DueDate { get; set; }
     }
 }

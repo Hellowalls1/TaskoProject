@@ -75,7 +75,7 @@ namespace TaskoProject.Controllers
         }
 
         [HttpDelete("{id}")]
-
+            //delete by id
         public IActionResult Delete(int id)
         {
             _taskRepository.Delete(id);

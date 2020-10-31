@@ -48,8 +48,8 @@ namespace TaskoProject.Controllers
             return Ok(_projectRepository.GetAll());
         }
 
-        [HttpGet("getprojectbyuser")]
-        public IActionResult GetByUser()
+        [HttpGet("getbycurrentuser")]
+        public IActionResult GetByCurrentUser()
         {
             var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             return Ok(_projectRepository.GetByFirebaseUserId(firebaseUserId));

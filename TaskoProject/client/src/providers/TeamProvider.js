@@ -1,32 +1,32 @@
 import React, { useState, useContext } from "react";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 
-export const ProjectContext = React.createContext();
+export const TeamContext = React.createContext();
 
-export const ProjectProvider = (props) => {
-  //url for project controller
-  const apiUrl = "/api/project";
-  const [projects, setProjects] = useState([]);
+export const TeamProvider = (props) => {
+  //url for team controller
+  const apiUrl = "/api/team";
+  const [teams, setTeams] = useState([]);
 
   //importing getToken function for current logged in users id
   const { getToken } = useContext(UserProfileContext);
 
-  const getProjectsByUser = () => {
+  const getAllTeams = () => {
     return getToken().then((token) =>
-      fetch(`${apiUrl}/getbycurrentuser`, {
-        method: "Get",
+      fetch(apiUrl, {
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
         .then((resp) => resp.json())
-        .then(setProjects)
+        .then(setTeams)
     );
   };
-  debugger;
+
   return (
-    <ProjectContext.Provider value={{ projects, getProjectsByUser }}>
+    <TeamsContext.Provider value={{ teams, getAllTeams }}>
       {props.children}
-    </ProjectContext.Provider>
+    </TeamsContext.Provider>
   );
 };

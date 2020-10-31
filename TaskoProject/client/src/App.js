@@ -3,12 +3,15 @@ import logo from "./logo.svg";
 import { BrowserRouter as Router } from "react-router-dom";
 import { UserProfileProvider } from "./providers/UserProfileProvider";
 import ApplicationViews from "./components/ApplicationViews";
+import { ProjectProvider } from "./providers/ProjectProvider";
 
 function App() {
   return (
     <Router>
       <UserProfileProvider>
-        <ApplicationViews />
+        <ProjectProvider>
+          <ApplicationViews />
+        </ProjectProvider>
       </UserProfileProvider>
     </Router>
   );

@@ -14,7 +14,7 @@ export const ProjectProvider = (props) => {
 
   const getAllProjects = () => {
     return getToken().then((token) =>
-      fetcu(apiUrl, {
+      fetch(apiUrl, {
         method: "Get",
         headers: {
           Authorization: `Bearer ${token}`,

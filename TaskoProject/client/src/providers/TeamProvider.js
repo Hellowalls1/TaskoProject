@@ -6,6 +6,7 @@ export const TeamContext = React.createContext();
 export const TeamProvider = (props) => {
   //url for team controller
   const apiUrl = "/api/team";
+  //setting all teams
   const [teams, setTeams] = useState([]);
 
   //importing getToken function for current logged in users id

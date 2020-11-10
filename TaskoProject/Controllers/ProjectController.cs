@@ -26,6 +26,13 @@ namespace TaskoProject.Controllers
             _projectRepository = new ProjectRepository(context);
         }
 
+        private UserProfile GetCurrentUser()
+        {
+            var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return _userProfileRepository.GetByFirebaseUserId(firebaseUserId);
+        }
+
+
         //getting the authorized user
         private UserProfile GetCurrentUserProfile()
         {
@@ -39,6 +46,13 @@ namespace TaskoProject.Controllers
         public IActionResult Get()
         {
             return Ok(_projectRepository.GetAll());
+        }
+
+        [HttpGet("getbycurrentuser")]
+        public IActionResult GetByCurrentUser()
+        {
+            var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return Ok(_projectRepository.GetByFirebaseUserId(firebaseUserId));
         }
 
         [HttpGet("id/{id}")]

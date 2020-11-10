@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,14 @@ namespace TaskoProject.Repositories
             .FirstOrDefault(t => t.Id == id);
         }
 
+        //getting all projects by firebase id needs team?
+        public List<Project> GetByFirebaseUserId(string id)
+        {
+            return _context.Project.Include(p => p.UserProfile)
+                .Include(p => p.Team)
+                .Where(u => u.UserProfile.FirebaseUserId == id)
+                .ToList();
+        }
       
         public void Add(Project project)
         {

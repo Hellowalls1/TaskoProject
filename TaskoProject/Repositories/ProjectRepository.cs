@@ -17,7 +17,7 @@ namespace TaskoProject.Repositories
         {
             _context = context;
         }
-
+        //getting all projects
         public List<Project> GetAll()
         {
             return _context.Project
@@ -25,7 +25,7 @@ namespace TaskoProject.Repositories
                    .Include(p => p.Team)
                    .ToList();
         }
-
+    //getting projects by id
         public Project GetProjectById(int id)
         {
             return _context.Project

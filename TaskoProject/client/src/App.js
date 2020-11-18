@@ -5,6 +5,7 @@ import { UserProfileProvider } from "./providers/UserProfileProvider";
 import { TeamProvider } from "./providers/TeamProvider";
 import ApplicationViews from "./components/ApplicationViews";
 import { ProjectProvider } from "./providers/ProjectProvider";
+import Header from "./components/Header";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <UserProfileProvider>
         <TeamProvider>
           <ProjectProvider>
+            <Header />
             <ApplicationViews />
           </ProjectProvider>
         </TeamProvider>

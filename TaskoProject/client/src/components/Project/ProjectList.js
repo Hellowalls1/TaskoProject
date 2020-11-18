@@ -33,18 +33,19 @@ const ProjectList = ({ project }) => {
   const [projectDescription, setProjectDescription] = useState();
   const [projectDueDate, setDueDate] = useState();
 
-  const userProfile = sessionStorage.getItem("userProfile");
+  // const userProfile = sessionStorage.getItem("userProfile");
 
-  const datepickerRef = useRef(null);
+  // const datepickerRef = useRef(null);
   const submitForm = () => {
     debugger;
+
     addProject({
-      userProfileId: parseInt(userProfile).id,
+      // userProfileId: parseInt(userProfile).id,
       teamId: parseInt(teamId),
       name: projectName,
       description: projectDescription,
-      dateCreated: new Date().toLocaleString,
-      dueDate: Date(projectDueDate).toLocaleString,
+      // dateCreated: new Date().toLocaleString,
+      dueDate: projectDueDate.toLocaleString(),
     });
   };
 
@@ -86,7 +87,6 @@ const ProjectList = ({ project }) => {
                 </option>
               ))}
             </select>
-
             <label htmlFor="name">Project Name:</label>
             <input
               type="text"
@@ -96,7 +96,6 @@ const ProjectList = ({ project }) => {
               autoFocus
               className="form-control mt-4"
             />
-
             <label htmlFor="description">Project Description:</label>
             <input
               type="text"
@@ -109,15 +108,15 @@ const ProjectList = ({ project }) => {
 
             <label htmlFor="dueDate">Due Date</label>
             <ReactDatePicker
+              type="date"
               id="dueDate"
-              ref={datepickerRef}
+              // ref={datepickerRef}
               selected={projectDueDate}
-              onChange={setDueDate}
+              onChange={(date) => setDueDate(date)}
               required
               autoFocus
               className="form-control mt-4"
             />
-
             <div className="">
               <Button
                 type="submit"

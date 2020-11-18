@@ -23,9 +23,27 @@ export const ProjectProvider = (props) => {
         .then(setProjects)
     );
   };
-  debugger;
+
+  const addProject = (project) =>
+    getToken().then((token) =>
+      fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(project),
+      })
+        .then((resp) => {
+          return resp.json();
+        })
+        .then(getProjectsByUser)
+    );
+
   return (
-    <ProjectContext.Provider value={{ projects, getProjectsByUser }}>
+    <ProjectContext.Provider
+      value={{ projects, addProject, getProjectsByUser }}
+    >
       {props.children}
     </ProjectContext.Provider>
   );

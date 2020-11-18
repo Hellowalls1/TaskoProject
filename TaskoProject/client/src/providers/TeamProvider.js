@@ -7,6 +7,7 @@ export const TeamProvider = (props) => {
   //url for team controller
   const apiUrl = "/api/team";
   //setting all teams
+
   const [teams, setTeams] = useState([]);
 
   //importing getToken function for current logged in users id
@@ -26,8 +27,8 @@ export const TeamProvider = (props) => {
   };
 
   return (
-    <TeamsContext.Provider value={{ teams, getAllTeams }}>
+    <TeamContext.Provider value={{ teams, getAllTeams }}>
       {props.children}
-    </TeamsContext.Provider>
+    </TeamContext.Provider>
   );
 };

@@ -60,10 +60,13 @@ namespace TaskoProject.Controllers
         {
             return Ok(_projectRepository.GetProjectById(id));
         }
-
+        //here lies the issue
         [HttpPost]
         public IActionResult Post(Project project)
         {
+            var currentUser = GetCurrentUserProfile();
+            project.UserProfileId = currentUser.Id;
+            project.DateCreated = DateTime.Now;
             _projectRepository.Add(project);
             return CreatedAtAction("Get", new { id = project.Id }, project);
         }
@@ -94,6 +97,7 @@ namespace TaskoProject.Controllers
             return NoContent();
         }
 
+  
     }
 }
 

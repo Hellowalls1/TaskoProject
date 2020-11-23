@@ -72,6 +72,7 @@ namespace TaskoProject.Controllers
         }
 
         //updates the team
+        //takes in the id
 
         [HttpPut("{id}")]
 

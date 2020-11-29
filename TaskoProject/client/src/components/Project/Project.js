@@ -25,11 +25,8 @@ const Project = ({ project }) => {
             <p className="project-dueDate">Due :{project.dueDate}</p>
           </CardBody>
           <div className="project-buttons">
-            <Button className="project-edit-button" size="lg">
-              Edit
-            </Button>
-            <Button className="project-delete-button" size="lg">
-              Delete
+            <Button className="project-view-button" size="lg">
+              View Details
             </Button>
           </div>
         </Card>

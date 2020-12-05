@@ -47,7 +47,7 @@ namespace TaskoProject.Controllers
         {
             return Ok(_projectRepository.GetAll());
         }
-
+        //getting project by logged in user
         [HttpGet("getbycurrentuser")]
         public IActionResult GetByCurrentUser()
         {
@@ -61,6 +61,7 @@ namespace TaskoProject.Controllers
             return Ok(_projectRepository.GetProjectById(id));
         }
         //here lies the issue
+        //current user comes from the GEtCurrentUserProfile method
         [HttpPost]
         public IActionResult Post(Project project)
         {

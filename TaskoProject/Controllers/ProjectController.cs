@@ -54,7 +54,7 @@ namespace TaskoProject.Controllers
             var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             return Ok(_projectRepository.GetByFirebaseUserId(firebaseUserId));
         }
-
+        //gets project by Id takes a id and passes it in as an argument
         [HttpGet("id/{id}")]
         public IActionResult GetPojectById(int id)
         {

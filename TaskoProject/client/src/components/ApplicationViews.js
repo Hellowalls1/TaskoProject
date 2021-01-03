@@ -23,7 +23,7 @@ export default function ApplicationViews() {
         <Route path="/register">
           <Register />
 
-          <Route path={`/id/:id`}>
+          <Route path={`getprojectbyuser/:id`}>
             {isLoggedIn ? <ProjectDetails /> : <Redirect to="/login" />}
           </Route>
         </Route>

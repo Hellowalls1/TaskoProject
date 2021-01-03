@@ -55,7 +55,7 @@ namespace TaskoProject.Controllers
             return Ok(_projectRepository.GetByFirebaseUserId(firebaseUserId));
         }
         //gets project by Id takes a id and passes it in as an argument
-        [HttpGet("id/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetPojectById(int id)
         {
             return Ok(_projectRepository.GetProjectById(id));

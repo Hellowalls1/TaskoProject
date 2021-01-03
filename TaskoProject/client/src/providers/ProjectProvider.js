@@ -26,7 +26,7 @@ export const ProjectProvider = (props) => {
   debugger;
   const getProjectById = (id) =>
     getToken().then((token) =>
-      fetch(`${apiUrl}/id/${id}`, {
+      fetch(`${apiUrl}/${id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

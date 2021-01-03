@@ -33,9 +33,6 @@ const ProjectList = ({ project }) => {
   const [projectDescription, setProjectDescription] = useState();
   const [projectDueDate, setDueDate] = useState();
 
-  // const userProfile = sessionStorage.getItem("userProfile");
-
-  // const datepickerRef = useRef(null);
   const submitForm = () => {
     debugger;
 

@@ -23,7 +23,7 @@ export const ProjectProvider = (props) => {
         .then(setProjects)
     );
   };
-  debugger;
+
   const getProjectById = (id) =>
     getToken().then((token) =>
       fetch(`${apiUrl}/${id}`, {

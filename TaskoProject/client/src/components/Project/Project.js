@@ -28,7 +28,7 @@ const Project = ({ project }) => {
           </CardBody>
           <div className="project-buttons">
             <Link
-              to={`/getProjectsByUser/${project.id}`}
+              to={`/getProjectById/${project.id}`}
               type="button"
               class="btn btn-primary"
               value="Project Details"

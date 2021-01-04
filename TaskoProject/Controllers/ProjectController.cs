@@ -56,9 +56,15 @@ namespace TaskoProject.Controllers
         }
         //gets project by Id takes a id and passes it in as an argument
         [HttpGet("{id}")]
-        public IActionResult GetPojectById(int id)
+        public IActionResult Get(int id)
         {
-            return Ok(_projectRepository.GetProjectById(id));
+            var project = _projectRepository.GetProjectById(id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+            return Ok(project);
+            //  return Ok(_projectRepository.GetProjectById(id));
         }
         //here lies the issue
         //current user comes from the GEtCurrentUserProfile method

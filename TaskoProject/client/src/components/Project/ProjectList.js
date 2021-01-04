@@ -34,8 +34,6 @@ const ProjectList = ({ project }) => {
   const [projectDueDate, setDueDate] = useState();
 
   const submitForm = () => {
-    debugger;
-
     addProject({
       // userProfileId: parseInt(userProfile).id,
       teamId: parseInt(teamId),

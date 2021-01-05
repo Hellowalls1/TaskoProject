@@ -24,18 +24,28 @@ export const ProjectProvider = (props) => {
     );
   };
 
-  const updateProject = (project) =>
+  const getProjectById = (id) =>
     getToken().then((token) =>
-      fetch(`${apiUrl}/${project.id}`, {
-        method: "Put",
+      fetch(`${apiUrl}/${id}`, {
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(item),
-      })
-        .then(getProjectById(project.id))
-        .then(getProjectsByUser)
+      }).then((res) => res.json())
     );
+
+  // const updateProject = (project) =>
+  //   getToken().then((token) =>
+  //     fetch(`${apiUrl}/${project.id}`, {
+  //       method: "Put",
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //       body: JSON.stringify(project),
+  //     })
+  //       .then(getProjectById(project.id))
+  //       .then(getProjectsByUser)
+  //   );
 
   const addProject = (project) =>
     getToken().then((token) =>
@@ -55,7 +65,7 @@ export const ProjectProvider = (props) => {
 
   return (
     <ProjectContext.Provider
-      value={{ projects, addProject, updateProject, getProjectsByUser }}
+      value={{ projects, addProject, getProjectsByUser, getProjectById }}
     >
       {props.children}
     </ProjectContext.Provider>

@@ -31,7 +31,7 @@ namespace TaskoProject.Repositories
             return _context.Project
             .Include(p => p.UserProfile)
             .Include(p => p.Team)
-            .FirstOrDefault(t => t.Id == id);
+            .FirstOrDefault(p => p.Id == id);
         }
 
         //getting all projects by firebase id needs team?

@@ -9,11 +9,8 @@ import {
   Modal,
   ModalBody,
 } from "reactstrap";
-import { ProjectContext } from "../../providers/ProjectProvider";
 
 const Project = ({ project }) => {
-  const { getProjectById } = useContext(ProjectContext);
-
   return (
     <>
       <div className="project-container">
@@ -24,6 +21,7 @@ const Project = ({ project }) => {
             <p className="project-dateCreated">
               Created On: {project.dateCreated}
             </p>
+            <p className="project-team">{project.team.name}</p>
             <p className="project-dueDate">Due :{project.dueDate}</p>
           </CardBody>
           <div className="project-buttons">

@@ -12,9 +12,13 @@ export const ListProvider = (props) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      })
-        .then((resp) => resp.json())
-        .then(setProjects);
+      }).then((resp) => resp.json());
     });
   };
+
+  return (
+    <ListContext.Provider value={{ getListsByProjectId }}>
+      {props.children}
+    </ListContext.Provider>
+  );
 };

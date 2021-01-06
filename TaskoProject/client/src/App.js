@@ -13,8 +13,10 @@ function App() {
       <UserProfileProvider>
         <TeamProvider>
           <ProjectProvider>
-            <Header />
-            <ApplicationViews />
+            <ListProvider>
+              <Header />
+              <ApplicationViews />
+            </ListProvider>
           </ProjectProvider>
         </TeamProvider>
       </UserProfileProvider>

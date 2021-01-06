@@ -33,6 +33,16 @@ namespace TaskoProject.Repositories
             .FirstOrDefault(t => t.Id == id);
         }
 
+        public List<List> GetListByProjectId(int id)
+        {
+            return _context.List
+                .Include(p => p.Project)
+                .Include(p => p.UserProfile)
+                .Where(p => p.ProjectId == id)
+                .ToList();
+
+        }
+
 
         public void Add(List list)
         {

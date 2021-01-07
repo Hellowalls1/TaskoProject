@@ -3,11 +3,14 @@ import { Link, useParams } from "react-router-dom";
 import { ProjectContext } from "../../providers/ProjectProvider";
 import { Card, CardBody, Button } from "reactstrap";
 import { TeamContext } from "../../providers/TeamProvider";
+import { ListContext } from "../../providers/ListProvider";
 
 export const ProjectDetails = ({ project }) => {
   const { getProjectById } = useContext(ProjectContext);
   const { teams, getAllTeams } = useContext(TeamContext);
+  const { getListsByProjectId, lists } = useContext(ListContext);
   const [theProject, setProject] = useState({});
+  const [lists, setLists] = useState([]);
 
   const { id } = useParams();
 
@@ -18,6 +21,10 @@ export const ProjectDetails = ({ project }) => {
   useEffect(() => {
     getAllTeams();
   }, []);
+
+  useEffect(() => {
+    getListsByProjectId(parseInt(id)).then(setLists);
+  });
 
   return (
     <>

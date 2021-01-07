@@ -3,6 +3,7 @@ import { userProfileContext } from "../providers/UserProfileProvider";
 
 export const ListProvider = (props) => {
   const { getToken } = useContext(userProfileContext);
+  const [lists, setLists] = useState([]);
   const apiUrl = "/api/list";
 
   const getListsByProjectId = (projectId) => {
@@ -12,12 +13,14 @@ export const ListProvider = (props) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }).then((resp) => resp.json());
+      })
+        .then((resp) => resp.json())
+        .then(setLists);
     });
   };
 
   return (
-    <ListContext.Provider value={{ getListsByProjectId }}>
+    <ListContext.Provider value={{ getListsByProjectId, lists }}>
       {props.children}
     </ListContext.Provider>
   );

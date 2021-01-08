@@ -3,14 +3,15 @@ import { Link, useParams } from "react-router-dom";
 import { ProjectContext } from "../../providers/ProjectProvider";
 import { Card, CardBody, Button } from "reactstrap";
 import { TeamContext } from "../../providers/TeamProvider";
-import { ListContext } from "../../providers/ListProvider";
+//import { ListContext } from "../../providers/ListProvider";
+import ListList from "../List/ListList";
 
 export const ProjectDetails = ({ project }) => {
   const { getProjectById } = useContext(ProjectContext);
   const { teams, getAllTeams } = useContext(TeamContext);
-  const { getListsByProjectId, lists } = useContext(ListContext);
+  //const { getListsByProjectId, lists } = useContext(ListContext);
   const [theProject, setProject] = useState({});
-  const [lists, setLists] = useState([]);
+  //const [lists, setLists] = useState([]);
 
   const { id } = useParams();
 
@@ -22,9 +23,9 @@ export const ProjectDetails = ({ project }) => {
     getAllTeams();
   }, []);
 
-  useEffect(() => {
-    getListsByProjectId(parseInt(id)).then(setLists);
-  });
+  // useEffect(() => {
+  //   getListsByProjectId(parseInt(id)).then(setLists);
+  // });
 
   return (
     <>
@@ -33,6 +34,7 @@ export const ProjectDetails = ({ project }) => {
         <p className="project-detail-dueDate">{theProject.dueDate}</p>
         <p className="project-detail-teamName">{theProject.team?.name}</p>
       </header>
+      <ListList />
     </>
   );
 };

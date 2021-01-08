@@ -33,7 +33,7 @@ namespace TaskoProject.Repositories
             .FirstOrDefault(t => t.Id == id);
         }
 
-        public List<List> GetListByProjectId(int id)
+        public List<List> GetListsByProjectId(int id)
         {
             return _context.List
                 .Include(p => p.Project)

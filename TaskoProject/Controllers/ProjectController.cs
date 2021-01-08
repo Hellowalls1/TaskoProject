@@ -47,6 +47,8 @@ namespace TaskoProject.Controllers
         {
             return Ok(_projectRepository.GetAll());
         }
+
+
         //getting project by logged in user
         [HttpGet("getbycurrentuser")]
         public IActionResult GetByCurrentUser()

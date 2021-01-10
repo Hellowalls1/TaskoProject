@@ -4,13 +4,13 @@ import { UserProfileContext } from "../providers/UserProfileProvider";
 export const ListContext = React.createContext();
 
 export const ListProvider = (props) => {
-  const { getToken } = useContext(UserProfileContext);
-  const [lists, setLists] = useState([]);
   const apiUrl = "/api/list";
-
-  const getListsByProjectId = (projectId) => {
+  const [lists, setLists] = useState([]);
+  const { getToken } = useContext(UserProfileContext);
+  debugger;
+  const getListsByProjectId = (id) => {
     return getToken().then((token) =>
-      fetch(`${apiUrl}/getListsByProjectId/${projectId}`, {
+      fetch(`${apiUrl}/getListsByProjectId/${id}`, {
         method: "Get",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -20,7 +20,7 @@ export const ListProvider = (props) => {
         .then(setLists)
     );
   };
-
+  debugger;
   return (
     <ListContext.Provider value={{ lists, getListsByProjectId }}>
       {props.children}

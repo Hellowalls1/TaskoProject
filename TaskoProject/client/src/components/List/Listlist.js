@@ -22,5 +22,5 @@ const ListList = ({ list }) => {
     </>
   );
 };
-
+debugger;
 export default ListList;

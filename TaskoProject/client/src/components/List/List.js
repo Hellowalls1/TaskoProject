@@ -8,7 +8,7 @@ import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 const List = ({ list }) => {
   return (
     <>
-      <div className="list-container">
+      <div className="list-individual">
         <Card>
           <CardTitle>{list.name}</CardTitle>
           <CardSubtitle>{list.dueDate}</CardSubtitle>

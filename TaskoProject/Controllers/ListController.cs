@@ -42,7 +42,14 @@ namespace TaskoProject.Controllers
             return Ok(_listRepository.GetAll());
         }
 
-        [HttpGet("id/{id}")]
+        [HttpGet("getlistsbyprojectid/{id}")]
+
+        public IActionResult GetListByProjectId(int id)
+        {
+            return Ok(_listRepository.GetListsByProjectId(id));
+        }
+            
+       [HttpGet("id/{id}")]
         public IActionResult GetListById(int id)
         {
             return Ok(_listRepository.GetListById(id));

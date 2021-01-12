@@ -47,6 +47,8 @@ namespace TaskoProject.Controllers
         {
             return Ok(_projectRepository.GetAll());
         }
+
+
         //getting project by logged in user
         [HttpGet("getbycurrentuser")]
         public IActionResult GetByCurrentUser()
@@ -78,6 +80,7 @@ namespace TaskoProject.Controllers
             return CreatedAtAction("Get", new { id = project.Id }, project);
         }
 
+       
         //updates the team
         //takes in the id
 

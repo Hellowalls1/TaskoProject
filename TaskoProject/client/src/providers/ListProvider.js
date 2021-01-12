@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 
 export const ListContext = React.createContext();
+//potentially an issue with ids
 
 export const ListProvider = (props) => {
   const apiUrl = "/api/list";

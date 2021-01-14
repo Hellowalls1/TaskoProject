@@ -11,14 +11,12 @@ export const ListProvider = (props) => {
   debugger;
   const getListsByProjectId = (id) => {
     return getToken().then((token) =>
-      fetch(`${apiUrl}/getListsByProjectId/${id}`, {
+      fetch(`${apiUrl}/getlistsbyprojectid/${id}`, {
         method: "Get",
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      })
-        .then((resp) => resp.json())
-        .then(setLists)
+      }).then((resp) => resp.json())
     );
   };
   debugger;

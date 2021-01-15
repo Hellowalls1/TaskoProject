@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-
+import { useParams } from "react-router-dom";
 import { UserProfileContext } from "../../providers/UserProfileProvider";
 import { ProjectContext } from "../../providers/ProjectProvider";
 import { ListContext } from "../../providers/ListProvider";
@@ -7,10 +7,14 @@ import List from "./List";
 
 const ListList = ({ list }) => {
   const { getListsByProjectId, lists } = useContext(ListContext);
+  const { projectLists, setProjectLists } = useState([]);
+  debugger;
+  const { id } = useParams();
 
   useEffect(() => {
-    getListsByProjectId();
+    getListsByProjectId(parseInt(id));
   }, []);
+
   debugger;
   return (
     <>
@@ -22,5 +26,5 @@ const ListList = ({ list }) => {
     </>
   );
 };
-debugger;
+
 export default ListList;

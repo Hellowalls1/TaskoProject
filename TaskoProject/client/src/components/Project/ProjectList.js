@@ -18,7 +18,7 @@ const ProjectList = ({ project }) => {
   useEffect(() => {
     getProjectsByUser();
   }, []);
-  debugger;
+
   useEffect(() => {
     getAllTeams();
   }, []);

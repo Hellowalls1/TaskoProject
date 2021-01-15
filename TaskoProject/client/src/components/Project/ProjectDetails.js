@@ -6,7 +6,7 @@ import { TeamContext } from "../../providers/TeamProvider";
 //import { ListContext } from "../../providers/ListProvider";
 import ListList from "../List/ListList";
 
-export const ProjectDetails = ({ project }) => {
+export const ProjectDetails = ({ project, list }) => {
   const { getProjectById } = useContext(ProjectContext);
   const { teams, getAllTeams } = useContext(TeamContext);
   //const { getListsByProjectId, lists } = useContext(ListContext);
@@ -17,7 +17,7 @@ export const ProjectDetails = ({ project }) => {
 
   useEffect(() => {
     getProjectById(parseInt(id)).then(setProject);
-  });
+  }, []);
 
   useEffect(() => {
     getAllTeams();
@@ -32,9 +32,12 @@ export const ProjectDetails = ({ project }) => {
       <header className="project-detail">
         <p className="project-detail-name">{theProject.name}</p>
         <p className="project-detail-dueDate">{theProject.dueDate}</p>
+        <p className="project-detail-dueDate">{theProject.description}</p>
         <p className="project-detail-teamName">{theProject.team?.name}</p>
       </header>
-      <ListList />
+      <aside>
+        <ListList />
+      </aside>
     </>
   );
 };

@@ -68,8 +68,13 @@ namespace TaskoProject.Controllers
             return Ok(project);
             //  return Ok(_projectRepository.GetProjectById(id));
         }
-        //here lies the issue
+        
         //current user comes from the GEtCurrentUserProfile method
+        //getting the active user with the GetCurrentUserProfile() method
+        //storing that value in an id
+        //setting the new project instances' UserProfileId to that current user's Id
+        //setting DateCreated to an instance of DateTime.Now
+        //then adding this new project object to the database
         [HttpPost]
         public IActionResult Post(Project project)
         {

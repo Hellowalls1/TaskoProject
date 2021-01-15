@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -12,6 +12,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -35,4 +36,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+*/
+
+.project-main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: content;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.project-container-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: content;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.project-list-cards {
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

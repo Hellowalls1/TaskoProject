@@ -8,14 +8,13 @@ import List from "./List";
 const ListList = ({ list }) => {
   const { getListsByProjectId, lists } = useContext(ListContext);
   const { projectLists, setProjectLists } = useState([]);
-  debugger;
+
   const { id } = useParams();
 
   useEffect(() => {
     getListsByProjectId(parseInt(id));
   }, []);
 
-  debugger;
   return (
     <>
       <div className="lists-list">

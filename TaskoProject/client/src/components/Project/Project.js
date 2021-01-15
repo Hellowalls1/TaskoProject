@@ -14,7 +14,7 @@ const Project = ({ project }) => {
   return (
     <>
       <div className="project-container">
-        <Card className=" m-4">
+        <Card className="project-card">
           <CardBody>
             <CardTitle className="project-name">{project.name}</CardTitle>
             <CardSubtitle className="project-description"></CardSubtitle>
@@ -23,18 +23,18 @@ const Project = ({ project }) => {
             </p>
             <p className="project-team">{project.team.name}</p>
             <p className="project-dueDate">Due :{project.dueDate}</p>
+            <div className="project-buttons">
+              <Link
+                to={`/getProjectById/${project.id}`}
+                type="button"
+                class="btn btn-primary"
+                value="Project Details"
+                size="sm"
+              >
+                View Project
+              </Link>
+            </div>
           </CardBody>
-          <div className="project-buttons">
-            <Link
-              to={`/getProjectById/${project.id}`}
-              type="button"
-              class="btn btn-primary"
-              value="Project Details"
-              size="sm"
-            >
-              View Project
-            </Link>
-          </div>
         </Card>
       </div>
     </>

@@ -13,6 +13,7 @@ const List = ({ list }) => {
           <CardTitle>{list.name}</CardTitle>
           <CardSubtitle>{list.dueDate}</CardSubtitle>
           <CardBody>{list.description}</CardBody>
+          <h1>THIS IS THE LIST OF LISTS</h1>
         </Card>
       </div>
     </>

@@ -8,7 +8,7 @@ export const ListProvider = (props) => {
   const apiUrl = "/api/list";
   const [lists, setLists] = useState([]);
   const { getToken } = useContext(UserProfileContext);
-  debugger;
+
   const getListsByProjectId = (id) => {
     return getToken().then((token) =>
       fetch(`${apiUrl}/getlistsbyprojectid/${id}`, {
@@ -16,7 +16,9 @@ export const ListProvider = (props) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }).then((resp) => resp.json())
+      })
+        .then((resp) => resp.json())
+        .then(setLists)
     );
   };
   debugger;

@@ -1,27 +1,25 @@
-import React, { useContext, useEffect, useState, useParams } from "react";
-
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { UserProfileContext } from "../../providers/UserProfileProvider";
 import { ProjectContext } from "../../providers/ProjectProvider";
 import { ListContext } from "../../providers/ListProvider";
 import List from "./List";
 
 const ListList = ({ list }) => {
-  const { getListsByProjectId } = useContext(ListContext);
-  const { projectLists, setProjectLists };
+  const { getListsByProjectId, lists } = useContext(ListContext);
+  const { projectLists, setProjectLists } = useState([]);
   debugger;
   const { id } = useParams();
 
-
-
   useEffect(() => {
-    getListsByProjectId(parseInt(id)).then(setProjectLists);
+    getListsByProjectId(parseInt(id));
   }, []);
 
   debugger;
   return (
     <>
       <div className="lists-list">
-        {projectLists.map((list) => (
+        {lists.map((list) => (
           <List key={list.id} list={list} />
         ))}
       </div>

@@ -35,7 +35,9 @@ export const ProjectDetails = ({ project, list }) => {
         <p className="project-detail-dueDate">{theProject.description}</p>
         <p className="project-detail-teamName">{theProject.team?.name}</p>
       </header>
-      <ListList />
+      <aside>
+        <ListList />
+      </aside>
     </>
   );
 };

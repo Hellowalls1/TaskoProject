@@ -4,7 +4,7 @@ import { ProjectContext } from "../../providers/ProjectProvider";
 import { Card, CardBody, Button } from "reactstrap";
 import { TeamContext } from "../../providers/TeamProvider";
 //import { ListContext } from "../../providers/ListProvider";
-import ListList from "../List/ListList";
+import ListList from "../List/Listlist";
 
 export const ProjectDetails = ({ project, list }) => {
   const { getProjectById } = useContext(ProjectContext);

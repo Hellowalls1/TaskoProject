@@ -7,7 +7,6 @@ import List from "./List";
 
 const ListList = ({ list }) => {
   const { getListsByProjectId, lists } = useContext(ListContext);
-  const { projectLists, setProjectLists } = useState([]);
 
   const { id } = useParams();
 

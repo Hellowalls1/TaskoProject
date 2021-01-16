@@ -2,10 +2,6 @@ import React from "react";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import { Link } from "react-router-dom";
 
-//need to create a representation of a lis
-//need to create a list of lists
-//need to put the components into ProjectDetails to display in the ui
-
 const List = ({ list }) => {
   return (
     <>

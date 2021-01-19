@@ -24,6 +24,15 @@ namespace TaskoProject.Repositories
                    .ToList();
         }
 
+
+        public List<Task> GetTasksByListId(int id)
+        {
+            return _context.Task
+                .Include(t => t.UserProfile)
+                .Include(t => t.List)
+                .Where(t => t.ListId == id)
+                .ToList();
+        }
         public Task GetTaskById(int id)
         {
             return _context.Task

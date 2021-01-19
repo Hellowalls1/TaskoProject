@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { TeamContext } from "../../providers/TeamProvider";
 import { UserContext } from "../../providers/UserProfileProvider";
 import { ProjectContext } from "../../providers/ProjectProvider";
-import { Button, Modal, ModalBody } from "reactstrap";
+import { Button, Modal, ModalBody, Card, CardBody } from "reactstrap";
 import Project from "./Project";
 
 const ProjectList = ({ project }) => {
@@ -46,22 +46,21 @@ const ProjectList = ({ project }) => {
 
   return (
     <>
-      <div className="main">
-        <div className="container">
+      <main className="project-main">
+        <div className="project-top-buttons">
           <div className="shadow p-3 mb-5  rounded w-25 mx-auto position-top addGearButton">
             <Button size="lg" block onClick={toggleAddProject}>
               Add Project
             </Button>
           </div>
-          <div className="row justify-content-center">
-            <div className="cards-column">
-              {projects.map((project) => (
-                <Project key={project.id} project={project} />
-              ))}
-            </div>
-          </div>
         </div>
-      </div>
+
+        <div className="project-container-list">
+          {projects.map((project) => (
+            <Project key={project.id} project={project} />
+          ))}
+        </div>
+      </main>
 
       <Modal isOpen={addProjectModal} toggle={toggleAddProject}>
         <ModalBody>

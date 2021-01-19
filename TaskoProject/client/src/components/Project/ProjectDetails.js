@@ -4,7 +4,7 @@ import { ProjectContext } from "../../providers/ProjectProvider";
 import { Card, CardBody, Button } from "reactstrap";
 import { TeamContext } from "../../providers/TeamProvider";
 //import { ListContext } from "../../providers/ListProvider";
-import ListList from "../List/ListList";
+import ListList from "../List/Listlist";
 
 export const ProjectDetails = ({ project, list }) => {
   const { getProjectById } = useContext(ProjectContext);
@@ -29,15 +29,19 @@ export const ProjectDetails = ({ project, list }) => {
 
   return (
     <>
-      <header className="project-detail">
-        <p className="project-detail-name">{theProject.name}</p>
-        <p className="project-detail-dueDate">{theProject.dueDate}</p>
-        <p className="project-detail-dueDate">{theProject.description}</p>
-        <p className="project-detail-teamName">{theProject.team?.name}</p>
-      </header>
-      <aside>
-        <ListList />
-      </aside>
+      <main className="project-detail-view-main">
+        <header className="project-detail-header">
+          <p className="project-detail-name">{theProject.name}</p>
+          <p className="project-detail-dueDate">{theProject.dueDate}</p>
+          <p className="project-detail-dueDate">{theProject.description}</p>
+          <p className="project-detail-teamName">{theProject.team?.name}</p>
+        </header>
+        <aside>
+          <div className="project-details-list">
+            <ListList />
+          </div>
+        </aside>
+      </main>
     </>
   );
 };

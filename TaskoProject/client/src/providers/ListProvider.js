@@ -21,7 +21,7 @@ export const ListProvider = (props) => {
         .then(setLists)
     );
   };
-  debugger;
+
   return (
     <ListContext.Provider value={{ lists, getListsByProjectId }}>
       {props.children}

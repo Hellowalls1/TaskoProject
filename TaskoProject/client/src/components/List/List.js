@@ -2,6 +2,8 @@ import React from "react";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import { Link } from "react-router-dom";
 
+//each individual list is going to have a path to view all of the tasks on said list on another page.
+//could also make this some sort of render that populates on the same page when the button is clicked.
 const List = ({ list }) => {
   return (
     <>

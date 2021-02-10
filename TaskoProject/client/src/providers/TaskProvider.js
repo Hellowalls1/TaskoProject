@@ -7,25 +7,25 @@ export const TaskContext = React.createContext();
 
 export const TaskProvider = (props) => {
   const apiUrl = "api/task";
-  //const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
   const { getToken } = useContext(UserProfileContext);
-  debugger;
+
   const getTasksByListId = (id) => {
-    getToken().then(
-      (token) =>
-        fetch(`${apiUrl}/gettasksbylistid`, {
-          method: "Get",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }).then((res) => res.json())
-      //  .then(setTasks)
+    getToken().then((token) =>
+      fetch(`${apiUrl}/gettasksbylistid/${id}`, {
+        method: "Get",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then(setTasks)
     );
   };
-  debugger;
+
   return (
-    <TaskContext.Provider value={{ getTasksByListId }}>
+    <TaskContext.Provider value={{ tasks, getTasksByListId }}>
       {props.children}
     </TaskContext.Provider>
   );

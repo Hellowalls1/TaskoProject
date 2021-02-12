@@ -8,7 +8,7 @@ export const ListProvider = (props) => {
   const apiUrl = "/api/list";
   const [lists, setLists] = useState([]);
   const { getToken } = useContext(UserProfileContext);
-debugger;
+
   const getListsByProjectId = (id) => {
     return getToken().then((token) =>
       fetch(`${apiUrl}/getlistsbyprojectid/${id}`, {
@@ -21,7 +21,7 @@ debugger;
         .then(setLists)
     );
   };
-debugger;
+
   return (
     <ListContext.Provider value={{ lists, getListsByProjectId }}>
       {props.children}

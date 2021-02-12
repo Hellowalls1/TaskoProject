@@ -34,7 +34,7 @@ export const ProjectDetails = ({ project, list }) => {
         </header>
         <aside>
           <div className="project-details-list">
-            <ListList />
+            <ListList list={list} />
           </div>
         </aside>
       </main>

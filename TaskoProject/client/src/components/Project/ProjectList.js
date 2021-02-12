@@ -40,7 +40,7 @@ const ProjectList = ({ project }) => {
       name: projectName,
       description: projectDescription,
       // dateCreated: new Date().toLocaleString,
-      dueDate: projectDueDate.toLocaleString(),
+      dueDate: projectDueDate.ToShortDateString(),
     });
   };
 

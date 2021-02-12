@@ -5,22 +5,22 @@ import { useParams } from "react-router-dom";
 
 const TaskList = ({ task }) => {
   const { getTasksByListId, tasks } = useContext(TaskContext);
-  const { theTasks, setTasks } = useState([]);
+  const [theTasks, setTheTasks] = useState([]);
   const { id } = useParams();
-  debugger;
+
+  //if you set the state in the provider you don't have to pass the resp in the set
   useEffect(() => {
-    getTasksByListId(parseInt(id)).then(setTasks);
+    getTasksByListId(parseInt(id)).then((tasks) => setTheTasks(tasks));
   }, []);
-  debugger;
+
   return (
     <>
       <div className="tasks-list">
-        {tasks.map((task) => (
-          <Task key={task.id} task={task} theTasks={theTasks} />
+        {theTasks.map((task) => (
+          <Task key={task.id} task={task} />
         ))}
       </div>
     </>
   );
 };
-
 export default TaskList;

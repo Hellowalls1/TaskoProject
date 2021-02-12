@@ -23,10 +23,6 @@ export const ProjectDetails = ({ project, list }) => {
     getAllTeams();
   }, []);
 
-  // useEffect(() => {
-  //   getListsByProjectId(parseInt(id)).then(setLists);
-  // });
-
   return (
     <>
       <main className="project-detail-view-main">
@@ -38,7 +34,7 @@ export const ProjectDetails = ({ project, list }) => {
         </header>
         <aside>
           <div className="project-details-list">
-            <ListList />
+            <ListList list={list} />
           </div>
         </aside>
       </main>

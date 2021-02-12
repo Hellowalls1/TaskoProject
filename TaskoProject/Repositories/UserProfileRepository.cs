@@ -32,6 +32,8 @@ namespace TaskoProject.Repositories
                 
         }
 
+        
+
         public void Add(UserProfile userProfile)
         {
             _context.Add(userProfile);

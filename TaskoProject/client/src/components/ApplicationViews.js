@@ -21,7 +21,7 @@ export default function ApplicationViews() {
           {isLoggedIn ? <ProjectDetails /> : <Redirect to="/login" />}
         </Route>
 
-        <Route path={`getTasksByListId/:id`}>
+        <Route path={`/getTasksByListId/:id`}>
           {isLoggedIn ? <TaskList /> : <Redirect to="/login" />}
         </Route>
 

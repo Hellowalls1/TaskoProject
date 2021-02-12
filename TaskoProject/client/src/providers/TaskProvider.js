@@ -6,24 +6,22 @@ import { ProjectContext } from "./ProjectProvider";
 export const TaskContext = React.createContext();
 
 export const TaskProvider = (props) => {
-  const apiUrl = "api/task";
+  const apiUrl = "/api/task";
   //const [tasks, setTasks] = useState([]);
 
   const { getToken } = useContext(UserProfileContext);
-  debugger;
+
   const getTasksByListId = (id) => {
-    getToken().then(
-      (token) =>
-        fetch(`${apiUrl}/gettasksbylistid`, {
-          method: "Get",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }).then((res) => res.json())
-      //  .then(setTasks)
+    return getToken().then((token) =>
+      fetch(`${apiUrl}/gettasksbylistid/${id}`, {
+        method: "Get",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((res) => res.json())
     );
   };
-  debugger;
+
   return (
     <TaskContext.Provider value={{ getTasksByListId }}>
       {props.children}

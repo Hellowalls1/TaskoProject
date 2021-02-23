@@ -24,7 +24,9 @@ namespace TaskoProject.Repositories
                    .ToList();
         }
 
-
+        //getting the tasks by the list they are on
+        //used in the task list
+        //includes user information so that the task can have a user
         public List<Task> GetTasksByListId(int id)
         {
             return _context.Task
@@ -33,6 +35,8 @@ namespace TaskoProject.Repositories
                 .Where(t => t.ListId == id)
                 .ToList();
         }
+
+        //for getting an individual task 
         public Task GetTaskById(int id)
         {
             return _context.Task

@@ -48,7 +48,8 @@ namespace TaskoProject.Controllers
         {
             return Ok(_taskRepository.GetTaskById(id));
         }
-
+        //getting tasks by list id
+        //takes a paramener of an id from the client side 
         [HttpGet("gettasksbylistid/{id}")]
         public IActionResult Get(int id)
         {

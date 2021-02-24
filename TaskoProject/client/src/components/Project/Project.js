@@ -10,6 +10,8 @@ import {
   ModalBody,
 } from "reactstrap";
 
+//has link going to new view to see the project
+
 const Project = ({ project }) => {
   return (
     <>

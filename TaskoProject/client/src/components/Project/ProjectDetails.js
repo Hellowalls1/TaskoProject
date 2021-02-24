@@ -23,6 +23,10 @@ export const ProjectDetails = ({ project, list }) => {
     getAllTeams();
   }, []);
 
+  //bring in the list of list components
+  //will display the list of lists that will have tasks to view
+  //will also be displaying project details seperately
+  //would be cool to have a notepad on the side
   return (
     <>
       <main className="project-detail-view-main">
